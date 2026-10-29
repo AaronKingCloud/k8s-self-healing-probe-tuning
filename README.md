@@ -1,15 +1,28 @@
 # k8s-self-healing-probe-tuning
 
-CLO835 Project 15
-Self-Healing and Probe Tuning
+# Kubernetes Self-Healing and Probe Tuning
 
-Student: Aaron King
+## CLO835 Project 15
 
-Project Goal
+**Student:** Aaron King
+
+## Project Goal
+
 Demonstrate Kubernetes startup, readiness, and liveness probe behavior including:
 
-Self-healing
-Readiness gating
-Startup protection
-CrashLoopBackOff diagnosis
-Probe tuning
+- Self-healing
+- Readiness gating
+- Startup protection
+- CrashLoopBackOff diagnosis
+- Probe tuning
+
+## Repository Structure
+
+- app/
+- manifests/
+- evidence/
+- .github/workflows/
+- bootstrap.sh
+- kind-config.yaml
+- runbook.md
+- predictions.md
