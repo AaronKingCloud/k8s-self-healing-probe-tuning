@@ -1,0 +1,54 @@
+### Aaron King ####
+
+# Deployment manifest for the flaky application
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaky-apking1
+  namespace: probes-apking1
+
+# Define the deployment specifications
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: flaky-apking1
+
+  template:
+    metadata:
+      labels:
+        app: flaky-apking1
+
+    spec:
+      containers:
+      - name: flaky-app
+  
+        image: flaky-app:v1
+
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 8080
+
+        envFrom:
+        - configMapRef:
+            name: flaky-config-apking1
+
+        # Define the readiness and liveness probes for the container
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          periodSeconds: 5
+          failureThreshold: 2
+
+        # Define the liveness probe for the container
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8080
+          periodSeconds: 10
+          timeoutSeconds: 3
+          failureThreshold: 3
+  

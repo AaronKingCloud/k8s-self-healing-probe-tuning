@@ -1,0 +1,7 @@
+### Aaron King ####
+
+# Create a namespace for the probes
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: probes-apking1

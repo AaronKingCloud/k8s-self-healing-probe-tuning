@@ -1,0 +1,19 @@
+### Aaron King ###
+
+# Create a service for the flaky application
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaky-svc-apking1
+  namespace: probes-apking1
+
+# Define the service specification to expose the flaky application
+spec:
+  selector:
+    app: flaky-apking1
+
+  ports:
+  - port: 8080
+    targetPort: 8080
+
+  type: ClusterIP

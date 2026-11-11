@@ -1,0 +1,14 @@
+### Aaron King ###
+
+# Create a configmap for the probes
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flaky-config-apking1
+  namespace: probes-apking1
+
+# Define the configuration data for the probes
+data:
+  STARTUP_DELAY_SECONDS: "0"
+  HEALTHZ_LATENCY_MS: "0"
+  STUDENT_ID: "apking1"

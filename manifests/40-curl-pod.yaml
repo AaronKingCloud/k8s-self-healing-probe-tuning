@@ -1,0 +1,21 @@
+### Aaron King ###
+
+# Create a configmap for the probes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: curl-pod
+  namespace: probes-apking1
+
+# Define the pod specification to run a curl container
+spec:
+  containers:
+  - name: curl
+
+    image: curlimages/curl:latest
+
+    command:
+    - sleep
+
+    args:
+    - "3600"
